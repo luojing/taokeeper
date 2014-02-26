@@ -3,37 +3,43 @@ Notice:The file is encoded by UTF-8
 HomePage: http://jm.taobao.org/2012/01/12/zookeeper%E7%9B%91%E6%8E%A7/
 CopyRight by Taobao.com
 Any question to: nileader@qq.com
-   
-   
+      
 1. Use To manage projects dependence using maven
 2. Database Initialization: taokeeper-build/sql/taokeeper.sql
 3. Implements com.taobao.taokeeper.reporter.alarm.MessageSender to send message.
 4. Exec taokeeper-build/build.cmd to generate taokeeper-monitor.war
 
+---------------------------------
+Modify pom.xml to fit my own project.
 
-任何建议与问题，请到 http://jm-blog.aliapp.com/?p=1450 进行反馈。
-         
-         
-         
-         
-         
-Alibaba OpenSource Maven Repository  
-	<profiles>
-		<profile>
-			<id>opensource</id>
-			<repositories>
-				<repository>
-					<id>taocodeReleases</id>
-					<name>taocode nexus</name>
-					<url>http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/</url>
-				</repository>
-				<repository>
-					<id>taocodeSnapshots</id>
-					<name>taocode nexus</name>
-					<url>http://mvnrepo.code.taobao.org/nexus/content/repositories/snapshots/</url>
-				</repository>
-			</repositories>
-		</profile>
-	</profiles>
+How to run:
+1. edit taokeeper-monitor-config.properties
+systemInfo.envName=TEST
+#DBCP
+dbcp.driverClassName=com.mysql.jdbc.Driver
+dbcp.dbJDBCUrl=jdbc:mysql://127.0.0.1:3306/taokeeper
+dbcp.characterEncoding=GBK
+dbcp.username=root
+dbcp.password=123456
+dbcp.maxActive=30
+dbcp.maxIdle=10
+dbcp.maxWait=10000
+#SystemConstant 
+SystemConstent.dataStoreBasePath=/tmp/zookeeper-monitor
+#SSH account of zk server
+SystemConstant.userNameOfSSH=xxx
+SystemConstant.passwordOfSSH=xxx
+
+2. export JAVA_OPTS=-DconfigFilePath=/yourPATH/taokeeper-monitor-config.properties
+
+3. $ cd taokeeper-build/
+   $ chmod u+x build.cmd
+   $ ./build.cmd
+
+4. cp taokeeper-monitor/target/taokeeper-monitor.war /usr/local/apache-tomcat-8.0.3/webapps/
+5. cd /usr/local/apache-tomcat-8.0.3/bin && ./catalina.sh start
+
+6. open http://localhost:8080/taokeeper-monitor/ in browser.
+
 
         

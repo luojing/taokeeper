@@ -118,11 +118,6 @@
 			<groupId>com.sdicons.jsontools</groupId>
 			<artifactId>jsontools-core</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-		</dependency>
-
 
 		<dependency>
 			<groupId>commons-logging</groupId>
