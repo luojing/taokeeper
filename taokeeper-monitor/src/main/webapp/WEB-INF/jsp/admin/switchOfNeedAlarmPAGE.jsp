@@ -19,19 +19,19 @@ a:visited { text-decoration:none}
 
 
 
-<h1>管理员-ZooKeeper 监控报警开关</h1>
+<h1>Administrator-ZooKeeper Monitor Alarm On/Off</h1>
 <div align="center" class="mytable" id="tab">
 <form name="updateSwitchOfAlarm"  id="updateSwitchOfAlarm"  action="admin.do?method=updateSwitchOfNeedAlarmHandle"  method="post">
 	<table border="0" cellspacing="0" cellpadding="0">
 		<tr style="background-color:#DDDDDE; text-align:center;">
-			<td><b>监控报警开关</b></td>
+			<td><b>Monitor Alarm Switch</b></td>
 			<td></td>
 		</tr>
 		<tr>
 			<td>
 				<c:choose>
-					<c:when test="${ needAlarm eq 'true' }"><input type="radio" name="needAlarm" value = "true" checked="checked">开启 <input type="radio" name="needAlarm" value = "false"  >关闭</c:when>
-					<c:when test="${ needAlarm eq 'false' }"><input type="radio" name="needAlarm" value = "true" >开启 <input type="radio" name="needAlarm" value = "false"  checked="checked">关闭</c:when>
+					<c:when test="${ needAlarm eq 'true' }"><input type="radio" name="needAlarm" value = "true" checked="checked">On <input type="radio" name="needAlarm" value = "false"  >Off</c:when>
+					<c:when test="${ needAlarm eq 'false' }"><input type="radio" name="needAlarm" value = "true" >On <input type="radio" name="needAlarm" value = "false"  checked="checked">Off</c:when>
 				</c:choose>	
 			</td>
 			<td align="right" ><input type="submit"  value="Update"  size="90"/> <font color="red">${handleMessage}</font> </td>
@@ -109,8 +109,8 @@ NeatDialog.prototype.close = function()
 function openDialog( content )
   {
 var sHTML = content+
-      '<p><button onclick="window.neatDialog.close()">关闭</button></p>';
-    new NeatDialog(sHTML, "<b>节点详情</b>", false);
+      '<p><button onclick="window.neatDialog.close()">Off</button></p>';
+    new NeatDialog(sHTML, "<b>Node Detail Infomation</b>", false);
   
 }
 </SCRIPT>

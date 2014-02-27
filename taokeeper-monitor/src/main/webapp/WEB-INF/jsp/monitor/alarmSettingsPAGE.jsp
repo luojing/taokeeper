@@ -16,7 +16,7 @@ a:active { text-decoration:none}
 a:hover { text-decoration:none} 
 a:visited { text-decoration:none}
 </style>
-<h1>ZooKeeper 报警设置</h1>
+<h1>ZooKeeper Alarm Setting</h1>
 
 <select id="clusterSelector" onchange="javascript:location.href=this.value;" >
 	<c:forEach var="zooKeeperCluster" items="${zooKeeperClusterMap}">
@@ -35,55 +35,55 @@ a:visited { text-decoration:none}
 	
 	
 		<tr style="background-color:#D3D1D1; text-align:center;">
-		 	<td><b>报警项目</b></td>
-		 	<td><b>设置参数(多个参数之间请用英文半角状态 , 相隔)</b></td>
+		 	<td><b>Alarm Item</b></td>
+		 	<td><b>Parameter(Please use English half Angle between multiple parameters)</b></td>
 		 </tr>
 		 <tr>
-		 	<td valign="middle">ZooKeeper节点生命检测最大延时</td>
+		 	<td valign="middle">ZooKeeper node maxDelayOfCheck</td>
 		 	<td valign="middle" ><input type="text" name="maxDelayOfCheck" id="maxDelayOfCheck"  value="${alarmSettings.maxDelayOfCheck}"/>s</td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">Cpu 峰值报警</td>
+		 	<td valign="middle">maxCpuUsage</td>
 		 	<td valign="middle" ><input type="text" name="maxCpuUsage"  id="maxCpuUsage"  value="${alarmSettings.maxCpuUsage}"/>%</td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">Memory 峰值报警</td>
+		 	<td valign="middle">maxMemoryUsage</td>
 		 	<td valign="middle" ><input type="text" name="maxMemoryUsage" id="maxMemoryUsage" value="${alarmSettings.maxMemoryUsage}"/>%</td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">Load 峰值报警</td>
+		 	<td valign="middle">maxLoad</td>
 		 	<td valign="middle" ><input type="text" name="maxLoad" id="maxLoad" value="${alarmSettings.maxLoad}"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">Data目录</td>
+		 	<td valign="middle">Data dir</td>
 		 	<td valign="middle" ><input type="text" name="dataDir" id="maxLoad" value="${alarmSettings.dataDir}"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">Log目录</td>
+		 	<td valign="middle">Log dir</td>
 		 	<td valign="middle" ><input type="text" name="dataLogDir" id="maxLoad" value="${alarmSettings.dataLogDir}"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">磁盘使用率 峰值报警</td>
+		 	<td valign="middle">maxDiskUsage</td>
 		 	<td valign="middle" ><input type="text" name="maxDiskUsage" id="maxLoad" value="${alarmSettings.maxDiskUsage}"/>%</td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">单机 连接数 峰值报警</td>
+		 	<td valign="middle">maxConnectionPerIp</td>
 		 	<td valign="middle" ><input type="text" name="maxConnectionPerIp" id="maxConnectionPerIp" value="${alarmSettings.maxConnectionPerIp}"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">单机 Watcher数 峰值报警</td>
+		 	<td valign="middle">maxWatchPerIp</td>
 		 	<td valign="middle" ><input type="text" name="maxWatchPerIp" id="maxWatchPerIp" value="${alarmSettings.maxWatchPerIp}"/></td>
 		 </tr>
 		 <tr >
 		 	<td valign="middle">Node Check Rule</td>
 		 	<td valign="middle" ><input type="text" name="nodePathCheckRule" id="nodePathCheckRule" value="${alarmSettings.nodePathCheckRule}" size="50"/>
 		 	<br>
-		 	<font color="blue">样例</font>：<b>|只能出现|^|不能出现| </b>
+		 	<font color="blue">Format</font>：<b>|display|^|no-display| </b>
 		 	<br>
-		 	<font color="blue">例子</font>：
+		 	<font color="blue">Example</font>：
 		 	 <b>|/</b>:nileader,yinshi;<b>/nileader</b>:test<b>|</b>^<b>|/</b>:test<b>|</b><br>
-	 		 <font color="blue">表示</font>：<br>
-	  		"<b>/</b>"这个path下，只能够出现nileader和yinshi这两个节点，"<b>/nileader</b>" 这个path下，只能够出现test节点, "<b>/</b>" 这个path下，不能够出现test节点<br>
+	 		 <font color="blue">Explain</font>：<br>
+	  		in "<b>/</b>" path，only can have nileader and yinshi two nodes，in "<b>/nileader</b>" paht，only have test node, in "<b>/</b>" path，can't have test node<br>
 		 	</td>
 		 </tr>
 
@@ -91,14 +91,14 @@ a:visited { text-decoration:none}
 	
 	
 		<tr style="background-color:#D3D1D1; text-align:center;">
-		 	<td colspan="2"   ><b>报警对象</b></td>
+		 	<td colspan="2"   ><b>Alarm To</b></td>
 		 </tr>
 		 <tr>
-		 	<td>旺旺</td>
+		 	<td>Ali Wangwang</td>
 		 	<td><input type="text" name="wangwangList" id="wangwangList"  value="${alarmSettings.wangwangList}" size="50"/></td>
 		 </tr>
 		 <tr>
-		 	<td>手机(线上使用)</td>
+		 	<td>cellphone(Online)</td>
 		 	<td><input type="text" name="phoneList" id="phoneList"  value="${alarmSettings.phoneList}" size="50" /></td>
 		 </tr>
 	
@@ -106,10 +106,10 @@ a:visited { text-decoration:none}
 		 
 		 <!-- 
 		 <tr style="background-color:#D3D1D1; text-align:center;">
-		 	<td colspan="2" ><b>周报对象</b></td>
+		 	<td colspan="2" ><b>Weekly Report To</b></td>
 		 </tr>
 		 <tr>
-		 	<td>邮箱</td>
+		 	<td>Email</td>
 		 	<td><input type="text" name="emailList" id="emailList"  value="${alarmSettings.emailList}" size="50"  readonly/></td>
 		 </tr>
 		 -->

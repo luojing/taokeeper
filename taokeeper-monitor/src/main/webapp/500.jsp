@@ -28,15 +28,15 @@
 </div>
 </div>
 <div id="breadcrumbs">
-<div class="xright"><a href="<c:url value="/login.do" />">登录</a> |
-<a href="<c:url value="/logout.do" />">退出</a></div>
+<div class="xright"><a href="<c:url value="/login.do" />">Login</a> |
+<a href="<c:url value="/logout.do" />">Logout</a></div>
 <div class="clear">
 <hr />
 </div>
 </div>
 <div id="leftColumn"><jsp:include
 	page="/WEB-INF/common/header.jsp" flush="true" /></div>
-<div id="rightColumn" style="padding: 20px 0 0 20px;">服务器内部错误，请稍后再访问！</div>
+<div id="rightColumn" style="padding: 20px 0 0 20px;">Server Internal Error, please request later!</div>
 <jsp:include page="/WEB-INF/common/footer.jsp" flush="true" />
 </body>
 </html>

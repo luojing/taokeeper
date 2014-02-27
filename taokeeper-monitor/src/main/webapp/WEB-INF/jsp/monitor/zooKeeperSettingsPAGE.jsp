@@ -22,7 +22,7 @@ a:active { text-decoration:none}
 a:hover { text-decoration:none} 
 a:visited { text-decoration:none}
 </style>
-<h1>ZooKeeper 集群信息<font size="2">  <a href="zooKeeper.do?method=zooKeeperRegisterPAGE">加入监控</a></font></h1>
+<h1>ZooKeeper Cluster Infomation<font size="2">  <a href="zooKeeper.do?method=zooKeeperRegisterPAGE">Add New monitor</a></font></h1>
 
 <select id="clusterSelector" onchange="javascript:location.href=this.value;" >
 	<c:forEach var="zooKeeperCluster" items="${zooKeeperClusterMap}">
@@ -37,19 +37,19 @@ a:visited { text-decoration:none}
 <form name="updateZooKeeperSettings"  id="updateZooKeeperSettings"  action="zooKeeper.do?method=updateZooKeeperSettingsHandle"  method="post">
 	<table>
 		 <tr style="background-color:#D3D1D1; text-align:center;">
-		 	<td><b>配置项</b></td>
-		 	<td><b>设置参数</b></td>
+		 	<td><b>Item</b></td>
+		 	<td><b>Value</b></td>
 		 </tr>
 		 <tr>
-		 	<td valign="middle">ZooKeeper集群名称</td>
+		 	<td valign="middle">ZooKeeper Cluster Name</td>
 		 	<td valign="middle" ><input type="text" name="clusterName" id="clusterName"  value="${zooKeeperCluster.clusterName}" size="100"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">机器列表</td>
+		 	<td valign="middle">Server List</td>
 		 	<td valign="middle" ><input type="text" name="serverListString"  id="serverListString"  value="${zooKeeperClusterServerList}" size="100"/></td>
 		 </tr>
 		 <tr >
-		 	<td valign="middle">描述</td>
+		 	<td valign="middle">Description</td>
 		 	<td valign="middle" ><input type="text" name="description" id="description" value="${zooKeeperCluster.description}" size="100"/></td>
 		 </tr>
 		 <tr >

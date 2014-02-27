@@ -6,7 +6,7 @@
 <script type="text/javascript" src="js/calendarDateInput.js"></script>
 
 
-<h1>ZooKeepr集群状态趋势图 <font size="2">机器IP:${server},统计日期：${statDate}  <a href="zooKeeperStatus.do?method=showZooKeeperStatusPAGE&clusterId=${ clusterId }">返回监控</a></font></h1>
+<h1>ZooKeepr Cluster status Graph <font size="2">Server IP:${server},Date：${statDate}  <a href="zooKeeperStatus.do?method=showZooKeeperStatusPAGE&clusterId=${ clusterId }">back</a></font></h1>
 <div style="width:50px;">
 <form>
 	<script>DateInput('orderdate', true, 'YYYY-MM-DD')</script>
@@ -85,7 +85,7 @@
                 // first graph
                 var graph1 = new AmCharts.AmGraph();
                 graph1.valueAxis = valueAxis1; // we have to indicate which value axis should be used
-                graph1.title = "订阅者数量";
+                graph1.title = "Watchers Number";
                 graph1.valueField = "watchers";
                 graph1.bullet = "round";
                 graph1.hideBulletsCount = 30;
@@ -94,7 +94,7 @@
                 // second graph                
                 var graph2 = new AmCharts.AmGraph();
                 graph2.valueAxis = valueAxis2; // we have to indicate which value axis should be used
-                graph2.title = "客户端连接数";
+                graph2.title = "Client Connection Number";
                 graph2.valueField = "conns";
                 graph2.bullet = "square";
                 graph2.hideBulletsCount = 30;
@@ -104,7 +104,7 @@
                 var graph3 = new AmCharts.AmGraph();
                 graph3.valueAxis = valueAxis3; // we have to indicate which value axis should be used
                 graph3.valueField = "znodes";
-                graph3.title = "ZNode数量";
+                graph3.title = "ZNode Number";
                 graph3.bullet = "triangleUp";
                 graph3.hideBulletsCount = 30;
                 chart.addGraph(graph3);

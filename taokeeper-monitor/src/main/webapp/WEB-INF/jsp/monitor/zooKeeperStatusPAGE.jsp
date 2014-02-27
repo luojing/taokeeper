@@ -22,7 +22,7 @@ a:visited { text-decoration:none}
 
 
 
-<h1>ZooKeeper集群状态<font size="2">  更新时间：${timeOfUpdateZooKeeperStatusSet }</font><font size="2">  <a href="zooKeeper.do?method=zooKeeperRegisterPAGE">加入监控</a></font></h1>
+<h1>ZooKeeper Cluster Status<font size="2">  Update Time：${timeOfUpdateZooKeeperStatusSet }</font><font size="2">  <a href="zooKeeper.do?method=zooKeeperRegisterPAGE">Add New monitor</a></font></h1>
 
 <select id="clusterSelector" onchange="javascript:location.href=this.value;" >
 	<c:forEach var="zooKeeperCluster" items="${zooKeeperClusterMap}">
@@ -39,13 +39,13 @@ a:visited { text-decoration:none}
 	<tr style="background-color:#DDDDDE;">
 		<td><b>Node IP</b></td>
 		<td><b>Role</b></td>
-		<td><b>连接数</b></td>
-		<td><b>Watch数</b></td>
+		<td><b>Connection Number</b></td>
+		<td><b>Watch Number</b></td>
 		<td><b>Watched /Total Path</b></td>
-		<td><b>数据量 Sent/Received</b></td>
-		<td><b>状态</b></td>
-		<td><b>节点自检状态</b></td>
-		<td><b>查看趋势</b></td>
+		<td><b>DataSize Sent/Received</b></td>
+		<td><b>Status</b></td>
+		<td><b>Node-Selfcheck Status</b></td>
+		<td><b>View Tendency</b></td>
 	</tr>
 
 	<c:forEach var="zooKeeperStatus" items="${zooKeeperStatusMap}"> 
@@ -71,10 +71,10 @@ a:visited { text-decoration:none}
 
 
 <br/><br/>
-<b>提示</b>:<br><br>
- 1. 节点自检 是指对集群中每个IP所在ZK节点上的PATH:  <b>/YINSHI.MONITOR.ALIVE.CHECK</b> 定期进行三次如下流程 : <br/>
-<b>节点连接</b> - <b>数据发布</b> - <b>修改通知</b> - <b>获取数据</b> - <b>数据对比</b>, 三次流程均成功视为该节点处于正常状态。<br><br>
- 2. 角色分类：<b>L</b>: Leader, <b>F</b>: Follower, <b>O</b>: Observer, <b>S</b>: Standalone
+<b>Tips</b>:<br><br>
+ 1. Node-Selfcheck is that PATH:  <b>/YINSHI.MONITOR.ALIVE.CHECK</b> in every Node, do following 3 steps regularly: <br/>
+<b>Node Connection</b> - <b>Data Publishing</b> - <b>Notification</b> - <b>Get data</b> - <b>Compare Data</b>, node is normal only when all steps success. <br><br>
+ 2. Roles：<b>L</b>: Leader, <b>F</b>: Follower, <b>O</b>: Observer, <b>S</b>: Standalone
  
  </div>
  <br>
@@ -106,7 +106,7 @@ a:visited { text-decoration:none}
 -->
 
  <br>
-  <h1>ZooKeeper实时读写TPS</h1>
+  <h1>ZooKeeper Real-Time Read/Write TPS</h1>
   <table border="0" cellspacing="0" cellpadding="0" style="width: 50px;">
       <tr>
       <c:forEach var="zooKeeperStatus" items="${zooKeeperStatusMap}">
@@ -186,8 +186,8 @@ NeatDialog.prototype.close = function()
 
 function openDialog( content )
   {
-var sHTML = '<p><button onclick="window.neatDialog.close()">关闭</button></p>' + content + '<p><button onclick="window.neatDialog.close()">关闭</button></p>';
-    new NeatDialog(sHTML, "<b>详情</b>", false);
+var sHTML = '<p><button onclick="window.neatDialog.close()">Off</button></p>' + content + '<p><button onclick="window.neatDialog.close()">Off</button></p>';
+    new NeatDialog(sHTML, "<b>Detail</b>", false);
   
 }
 </SCRIPT>

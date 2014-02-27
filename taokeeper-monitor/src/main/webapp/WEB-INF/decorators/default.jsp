@@ -21,8 +21,6 @@
 	src="<c:url value="/js/jquery-ui-1.8.5.custom.min.js" />"></script>
 <decorator:head />
 
-
-
 </head>
 <body class="composite">
 <div id="banner"><a href="<c:url value="/default.do" />" id="bannerLeft">
@@ -33,9 +31,9 @@
 </div>
 <div id="breadcrumbs">
 <div class="xright">
-<a target="_blank" href="http://baike.corp.taobao.com/index.php/ZooKeeper_Lab">TaoKeeper百科</a>
+<a target="_blank" href="https://github.com/luojing/taokeeper">TaoKeeper Dev</a>
 &nbsp;&nbsp;&nbsp;&nbsp;
-<a target="_blank" href="http://www2.im.alisoft.com/webim/tribe/tribeDetail.htm?tribeId=405776981">ZooKeeper 交流群：405776981</a>
+<a href="mailto:luojinglp@gmail.com">Contact Author</a>
 </div>
 <div class="clear">
 <hr />

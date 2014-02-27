@@ -6,13 +6,13 @@
 		<li>Monitor
 			<ul>
 				<li><a
-					href="<c:url value="/zooKeeper.do?method=zooKeeperSettingsPAGE" />">集群配置</a></li>
+					href="<c:url value="/zooKeeper.do?method=zooKeeperSettingsPAGE" />">Cluster Config</a></li>
 				<li><a
-					href="<c:url value="/zooKeeperStatus.do?method=showZooKeeperStatusPAGE" />">集群监控</a></li>
+					href="<c:url value="/zooKeeperStatus.do?method=showZooKeeperStatusPAGE" />">Cluster Monitor</a></li>
 				<li><a
-					href="<c:url value="/hostPerformance.do?method=showHostPerformancePAGE" />">机器监控</a></li>
+					href="<c:url value="/hostPerformance.do?method=showHostPerformancePAGE" />">Server Monitor</a></li>
 				<li><a
-					href="<c:url value="/alarmSettings.do?method=alarmSettingsPAGE" />">报警设置</a></li>
+					href="<c:url value="/alarmSettings.do?method=alarmSettingsPAGE" />">Alarm Config</a></li>
 			</ul>
 		</li>
 
@@ -20,9 +20,9 @@
 		<li>Admin
 			<ul>
 				<li><a
-					href="<c:url value="admin.do?method=switchOfNeedAlarmPAGE" />">报警开关</a></li>
+					href="<c:url value="admin.do?method=switchOfNeedAlarmPAGE" />">Alarm Switch</a></li>
 				<li><a
-					href="<c:url value="admin.do?method=setSystemConfigPAGE" />">系统设置</a></li>
+					href="<c:url value="admin.do?method=setSystemConfigPAGE" />">System Config</a></li>
 			</ul>
 		</li>
 
@@ -30,9 +30,9 @@
 		<!-- 
 	<li>Reports
 		<ul>
-			<li><a href="">日报</a></li>
-			<li><a href="">周报</a></li>
-			<li><a href="">趋势</a></li>
+			<li><a href="">Daily</a></li>
+			<li><a href="">Weekly</a></li>
+			<li><a href="">Tendency</a></li>
 		</ul>
 	</li>
 -->

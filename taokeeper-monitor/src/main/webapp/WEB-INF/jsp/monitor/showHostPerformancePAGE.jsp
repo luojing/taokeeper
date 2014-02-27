@@ -19,7 +19,7 @@ a:visited { text-decoration:none}
 
 
 
-<h1>ZooKeeper机器状态<font size="2">  更新时间：${timeOfUpdateHostPerformanceSet }</font></h1>
+<h1>ZooKeeper Server Status<font size="2">  Update Time：${timeOfUpdateHostPerformanceSet }</font></h1>
 
 <select id="clusterSelector" onchange="javascript:location.href=this.value;" >
 	<c:forEach var="zooKeeperCluster" items="${zooKeeperClusterMap}">
