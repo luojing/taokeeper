@@ -57,6 +57,7 @@ public class ZKServerPerformanceCollector implements Runnable {
 			LOG.info( "HostPerformanceEntity collect of #" + zookeeperCluster.getClusterName() + "-" + ip );
 		} catch ( SSHException e ) {
 			LOG.warn( "HostPerformanceEntity collect of " + ip + " ：" + e.getMessage() );
+			e.printStackTrace();
 		} catch ( Throwable exception ) {
 			LOG.error( "程序出错: " + exception.getMessage() );
 			exception.printStackTrace();
