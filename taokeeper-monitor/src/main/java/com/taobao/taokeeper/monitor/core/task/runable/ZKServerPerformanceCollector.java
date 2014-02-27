@@ -71,9 +71,6 @@ public class ZKServerPerformanceCollector implements Runnable {
 
 		if ( null == alarmSettings )
 			return;
-
-		String wangwangList = alarmSettings.getWangwangList();
-		String phoneList = alarmSettings.getPhoneList();
 		String maillist = alarmSettings.getEmailList();
 
 		String maxCpuUsage = alarmSettings.getMaxCpuUsage();
@@ -94,14 +91,10 @@ public class ZKServerPerformanceCollector implements Runnable {
 					// Alarm
 					if ( GlobalInstance.needAlarm.get() ) {
 						ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( 
-								new Message( wangwangList, "ZK Server cpu usage too high-" + clusterName, hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-" + maxCpuUsage + "=" + difference,
-								Message.MessageType.WANGWANG ),
 								new Message( maillist, "ZK Server cpu usage too high-" + clusterName, hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-" + maxCpuUsage + "=" + difference,
-										Message.MessageType.EMAIL ),
-								new Message( phoneList, "ZK Server cpu usage too high-" + clusterName, "ZK Server cpu usage too high-" + clusterName + hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-"
-										+ maxCpuUsage + "=" + difference, Message.MessageType.SMS )
+										Message.MessageType.EMAIL )
 								) );
-						LOG.info( "WangWangList: " + wangwangList );
+						LOG.info( "maillist: " + maillist );
 					}
 				}
 			}
@@ -117,14 +110,9 @@ public class ZKServerPerformanceCollector implements Runnable {
 					// Alarm
 					if ( GlobalInstance.needAlarm.get() ) {
 						ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( 
-								
-								new Message( wangwangList, "ZK Server memory usage too high:-" + clusterName, hostPerformanceEntity.getIp() + " memory too high：" + memoryUsage + "-" + maxMemoryUsage + "=" + difference,
-								Message.MessageType.WANGWANG ),
-								
-								new Message( phoneList, "", "ZK Server memory usage too high-" + clusterName + hostPerformanceEntity.getIp() + memoryUsage + "-" + maxMemoryUsage + "=" + difference, Message.MessageType.SMS )
-								
-								) );
-						LOG.info( "WangWangList: " + wangwangList );
+								new Message( maillist, "ZK Server memory usage too high:-" + clusterName, hostPerformanceEntity.getIp() + " memory too high：" + memoryUsage + "-" + maxMemoryUsage + "=" + difference,
+								Message.MessageType.EMAIL ) ));
+						LOG.info( "maillist: " + maillist );
 					}
 				}
 			}
@@ -139,16 +127,12 @@ public class ZKServerPerformanceCollector implements Runnable {
 					if ( GlobalInstance.needAlarm.get() ) {
 						
 						ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( 
-								
-								new Message( wangwangList, " ZK Server load usage too high-"
+								new Message( maillist, " ZK Server load usage too high-"
 								+ clusterName, hostPerformanceEntity.getIp() + "：" + load + "-" + maxLoad + "=" + difference,
-								Message.MessageType.WANGWANG ),
-								
-								new Message( phoneList, "", "ZK Server load usage too high-" + clusterName + hostPerformanceEntity.getIp() + "：" + load + "-"
-										+ maxLoad + "=" + difference, Message.MessageType.SMS )
+								Message.MessageType.EMAIL )
 								
 								) );
-						LOG.info( "WangWangList: " + wangwangList );
+						LOG.info( "maillist: " + maillist );
 					}
 				}
 			}
@@ -180,17 +164,12 @@ public class ZKServerPerformanceCollector implements Runnable {
 											+ "%, max setting usage is: " + maxDiskUsage + "%" );
 									if ( GlobalInstance.needAlarm.get() ) {
 										ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( 
-												
-												new Message( wangwangList,
+												new Message( maillist,
 												"ZK Server disk usage too high-" + clusterName, hostPerformanceEntity.getIp() + " disk usage too high, "
 														+ mountedOn + ":" + diskUsage + "%, max setting usage is: " + maxDiskUsage + "%",
-												Message.MessageType.WANGWANG ),
-										
-												new Message( phoneList, "", "ZK disk usage too high-" + clusterName
-														+ hostPerformanceEntity.getIp() + "," + mountedOn + ": " + diskUsage
-														+ "%, max setting usage is: " + maxDiskUsage + "%", Message.MessageType.SMS )
+												Message.MessageType.EMAIL )
 												) );
-										LOG.info( "WangWangList: " + wangwangList );
+										LOG.info( "maillist: " + maillist );
 									}
 								}
 							}

@@ -133,8 +133,8 @@ public class Initialization extends HttpServlet implements Servlet {
 
 		
 		LOG.info( "=================================Finish init system===========================" );
-		ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( "银时", "TaoKeeper启动", "TaoKeeper启动",
-				Message.MessageType.WANGWANG ) ) );
+//		ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( "银时", "TaoKeeper启动", "TaoKeeper启动",
+//				Message.MessageType.EMAIL ) ) );
 
 		WebApplicationContext wac = ContextLoader.getCurrentWebApplicationContext();
 		SettingsDAO settingsDAO = ( SettingsDAO ) wac.getBean( "taoKeeperSettingsDAO" );

@@ -464,7 +464,7 @@ public class ZKServerStatusCollector implements Runnable {
 
                 if ( Integer.parseInt( maxConnectionPerIp ) < connectionsPerIp ) {
                     needAlarm = true;
-                    sb.append( zooKeeperStatus.getIp() + " 上的连接数达到了: " + connectionsPerIp + ", 超过设置的报警阀值: " + maxConnectionPerIp + ".  " );
+                    sb.append( zooKeeperStatus.getIp() + " connectin is: " + connectionsPerIp + ", over than threshold: " + maxConnectionPerIp + ".  " );
                 }
             }
 
@@ -472,18 +472,16 @@ public class ZKServerStatusCollector implements Runnable {
                 int watchesPerIp = zooKeeperStatus.getWatches();
                 if ( Integer.parseInt( maxWatchPerIp ) < watchesPerIp ) {
                     needAlarm = true;
-                    sb.append( zooKeeperStatus.getIp() + " 上的Watch数达到了: " + watchesPerIp + ", 超过设置的报警阀值: " + maxWatchPerIp + ".  " );
+                    sb.append( zooKeeperStatus.getIp() + " Watch number is: " + watchesPerIp + ", over than threshold: " + maxWatchPerIp + ".  " );
                 }
             }
 
             if ( needAlarm ) {
-                LOG.warn( "ZooKeeper连接数，Watcher数报警" + sb.toString() );
+                LOG.warn( "ZooKeeper connections，Watcher number" + sb.toString() );
                 if ( GlobalInstance.needAlarm.get() ) {
-                    String wangwangList = alarmSettings.getWangwangList();
-                    String phoneList = alarmSettings.getPhoneList();
+                    String maillist = alarmSettings.getEmailList();
 
-                    ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( wangwangList, "ZooKeeper连接数，Watcher数报警-" + clusterName, clusterName + "-" + sb.toString(), Message.MessageType.WANGWANG ) ) );
-                    ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( phoneList, "ZooKeeper连接数，Watcher数报警-" + clusterName, clusterName + "-" + sb.toString(), Message.MessageType.WANGWANG ) ) );
+                    ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( maillist, "ZooKeeper connections，Watcher Number-" + clusterName, clusterName + "-" + sb.toString(), Message.MessageType.EMAIL ) ) );
                 }
             }// need alarm
         } catch ( NumberFormatException e ) {

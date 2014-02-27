@@ -83,8 +83,7 @@ public class ZKServerAliveCheck implements Runnable {
 				LOG.info( zkIp + " not check, start to check now time..." );
 				String ip = server.split( COLON )[0];
 
-				String wangwangList = alarmSettings.getWangwangList();
-				String phoneList = alarmSettings.getPhoneList();
+				String maillist = alarmSettings.getEmailList();
 
 				if ( !StringUtil.isBlank( alarmSettings.getMaxDelayOfCheck() ) ) {
 					// 进行两次检查
@@ -97,11 +96,9 @@ public class ZKServerAliveCheck implements Runnable {
 								GlobalInstance.putZooKeeperStatusType( ip, 2 );
 								// 报警
 								if ( GlobalInstance.needAlarm.get() ) {
-									ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( wangwangList, "ZooKeeper所在机器存活性检测失败" + this.zooKeeperCluster.getClusterName(), "Zk node: "
-											+ server + " 存活性检测失败", Message.MessageType.WANGWANG ) ) );
+									ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( maillist, "server with ZooKeeper failed to check alive" + this.zooKeeperCluster.getClusterName(), "Zk node: "
+											+ server + " failed to check alive", Message.MessageType.EMAIL ) ) );
 									
-									ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( phoneList, "ZooKeeper所在机器存活性检测失败" + this.zooKeeperCluster.getClusterName(), "Zk node: " + server
-											+ " 存活性检测失败", Message.MessageType.WANGWANG ) ) );
 								}
 								LOG.info( "#-" + this.zooKeeperCluster.getClusterName() + "-" + server + "自检结果ERROR" );
 								continue;
@@ -117,13 +114,8 @@ public class ZKServerAliveCheck implements Runnable {
 						// 报警
 						if ( GlobalInstance.needAlarm.get() ) {
 							
-							ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( wangwangList, "ZooKeeper所在机器存活性检测失败" + this.zooKeeperCluster.getClusterName(), "Zk node: "
-									+ server + " 存活性检测失败" + e.getMessage(), Message.MessageType.WANGWANG ) ) );
-							
-							
-							ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( phoneList, "ZooKeeper所在机器存活性检测失败" + this.zooKeeperCluster.getClusterName(), "Zk node: " + server
-									+ " 存活性检测失败" + e.getMessage(), Message.MessageType.WANGWANG ) ) );
-							
+							ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( new Message( maillist, "server with ZooKeeper failed to check alive" + this.zooKeeperCluster.getClusterName(), "Zk node: "
+									+ server + " failed to check alive" + e.getMessage(), Message.MessageType.EMAIL ) ) );
 						}
 						GlobalInstance.putZooKeeperStatusType( ip, 2 );
 						LOG.info( "Exception when check #-" + this.zooKeeperCluster.getClusterName() + "-" + server + ", Error: " + e.getMessage(), e );

@@ -110,7 +110,7 @@ public class ZooKeeperNodeChecker extends TimerTask{
 			return;
 		}
 		String strNodePathCheckRule = StringUtil.trimToEmpty( alarmSettings.getNodePathCheckRule() );
-		String wangwangList               = alarmSettings.getWangwangList();
+		String maillist = alarmSettings.getEmailList();
 		NodePathCheckRule nodePathCheckRule = null;
 		try {
 			nodePathCheckRule = AlarmSettingUtil.parseNodePathCheckRuleFromString( strNodePathCheckRule );
@@ -161,10 +161,10 @@ public class ZooKeeperNodeChecker extends TimerTask{
 						if ( GlobalInstance.needAlarm.get() ) {
 							ThreadPoolManager.addJobToMessageSendExecutor( 
 									new TbMessageSender( 
-											new Message( wangwangList,//
-													"ZooKeeper Node的path检查结果,cluster: " + zookeeperCluster.getClusterName(),//
-													 path + " 下存在多余的node："  + pathReal, //
-													 Message.MessageType.WANGWANG ) ) );
+											new Message( maillist,//
+													"ZooKeeper Node' path check result,cluster: " + zookeeperCluster.getClusterName(),//
+													 path + " have extra nodes："  + pathReal, //
+													 Message.MessageType.EMAIL ) ) );
 						}
 					}
 				}
@@ -192,10 +192,10 @@ public class ZooKeeperNodeChecker extends TimerTask{
 						if ( GlobalInstance.needAlarm.get() ) {
 							ThreadPoolManager.addJobToMessageSendExecutor( 
 									new TbMessageSender( 
-											new Message( wangwangList,//
-												   "ZooKeeper Node的path检查结果,cluster: " + zookeeperCluster.getClusterName(),//
-												    path + " 下存在多余的node："  + pathConfig, //
-													Message.MessageType.WANGWANG ) ) );
+											new Message( maillist,//
+												   "ZooKeeper Node's path check result,cluster: " + zookeeperCluster.getClusterName(),//
+												    path + " have extra nodes："  + pathConfig, //
+													Message.MessageType.EMAIL ) ) );
 						}
 					}
 				}
