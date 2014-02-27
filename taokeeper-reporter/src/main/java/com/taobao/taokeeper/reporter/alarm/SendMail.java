@@ -20,7 +20,7 @@ public class SendMail {
 		this.content = content;
 	}
 	
-	public void send(){
+	public boolean send(){
 		boolean isSSL = true;
         String host = "smtp.163.com";
         int port = 465;
@@ -41,8 +41,10 @@ public class SendMail {
             email.setSubject(this.subject);
             email.setMsg(this.content);
             email.send();
+            return true;
         } catch (EmailException e) {
             e.printStackTrace();
+            return false;
         }
 	}
 	

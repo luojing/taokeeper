@@ -36,8 +36,11 @@ public class TbMessageSender implements MessageSender {
 	@Override
 	public void run() {
 
-		if ( null == messages || 0 == messages.length || StringUtil.isBlank( SystemConstant.IP_OF_MESSAGE_SEND ) ){
-			LOG.info( "[TaoKeeper]No need to send message: messages.length: " + messages + ", IP_OF_MESSAGE_SEND=" + SystemConstant.IP_OF_MESSAGE_SEND );
+		//[TaoKeeper]No need to send message: messages.length: [Lcom.taobao.taokeeper.model.type.Message;@143f681f, IP_OF_MESSAGE_SEND=
+
+		
+		if ( null == messages || 0 == messages.length ){
+			LOG.info( "[TaoKeeper]No need to send message: messages.length: " + messages.length );
 			return;
 		}
 
@@ -74,16 +77,17 @@ public class TbMessageSender implements MessageSender {
 		
 		List<String> targetAddressList = ListUtil.parseList( StringUtil.trimToEmpty( targetAddresses ), COMMA );
 
-		Map<String, String> map = new HashMap<String, String>();
-		map.put( "ip", SystemConstant.IP_OF_MESSAGE_SEND );
-		map.put( "subject", URLEncoder.encode( subject, "UTF-8" ) );
-		map.put( "content", URLEncoder.encode( content, "UTF-8" ) );
-		String url = "";
+//		Map<String, String> map = new HashMap<String, String>();
+//		map.put( "ip", SystemConstant.IP_OF_MESSAGE_SEND );
+//		map.put( "subject", URLEncoder.encode( subject, "UTF-8" ) );
+//		map.put( "content", URLEncoder.encode( content, "UTF-8" ) );
+//		String url = "";
 		
 		if ( channel.equalsIgnoreCase( MessageType.EMAIL.toString() ) ) {
 			SendMail mail = new SendMail(targetAddressList,subject,content);
-			mail.send();
+			return mail.send();
 		}
+		return false;
 		
 		/*
 		if ( channel.equalsIgnoreCase( MessageType.WANGWANG.toString() ) ) {
@@ -102,9 +106,9 @@ public class TbMessageSender implements MessageSender {
 				url = StringUtil.replacePlaceholder( SystemConstant.URL_TEMPLEMENT_OF_MESSAG_SEND, map );
 			}
 		}
-		*/
 		LOG.info( "[Taokeeper]Send message: " + url );
 		return "ok".equalsIgnoreCase( NetUtil.getContentOfUrl( url ) );
+		*/
 
 	}
 
