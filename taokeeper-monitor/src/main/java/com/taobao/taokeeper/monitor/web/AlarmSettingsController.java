@@ -48,6 +48,7 @@ public class AlarmSettingsController extends BaseController {
 			model.put( "alarmSettings", alarmSettings );
 			model.put( "alarmSettingsMap", alarmSettingsMap );
 			model.put("clusterId", clusterId );
+			model.put("description", GlobalInstance.getZooKeeperClusterByClusterId(Integer.parseInt( clusterId )).getDescription());
 			model.put( "zooKeeperClusterMap", zooKeeperClusterMap );
 			model.put( "handleMessage", StringUtil.trimToEmpty( handleMessage ) );
 			return new ModelAndView("monitor/alarmSettingsPAGE", model );

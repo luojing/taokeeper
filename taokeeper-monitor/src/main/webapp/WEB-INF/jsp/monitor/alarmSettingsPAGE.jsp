@@ -87,22 +87,8 @@ a:visited { text-decoration:none}
 		 	</td>
 		 </tr>
 
-		<! --
 		<tr style="background-color:#D3D1D1; text-align:center;">
 		 	<td colspan="2"   ><b>Alarm To</b></td>
-		 </tr>
-		 <tr>
-		 	<td>Ali Wangwang</td>
-		 	<td><input type="text" name="wangwangList" id="wangwangList"  value="${alarmSettings.wangwangList}" size="50"/></td>
-		 </tr>
-		 <tr>
-		 	<td>cellphone(Online)</td>
-		 	<td><input type="text" name="phoneList" id="phoneList"  value="${alarmSettings.phoneList}" size="50" /></td>
-		 </tr>
-		-->
-		 
-		 <tr style="background-color:#D3D1D1; text-align:center;">
-		 	<td colspan="2" ><b>Weekly Report To</b></td>
 		 </tr>
 		 <tr>
 		 	<td>Email</td>
