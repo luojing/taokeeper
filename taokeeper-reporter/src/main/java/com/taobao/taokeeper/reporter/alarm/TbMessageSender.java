@@ -79,6 +79,13 @@ public class TbMessageSender implements MessageSender {
 		map.put( "subject", URLEncoder.encode( subject, "UTF-8" ) );
 		map.put( "content", URLEncoder.encode( content, "UTF-8" ) );
 		String url = "";
+		
+		if ( channel.equalsIgnoreCase( MessageType.EMAIL.toString() ) ) {
+			SendMail mail = new SendMail(targetAddressList,subject,content);
+			mail.send();
+		}
+		
+		/*
 		if ( channel.equalsIgnoreCase( MessageType.WANGWANG.toString() ) ) {
 
 			for ( String targetAddress : targetAddressList ) {
@@ -95,6 +102,7 @@ public class TbMessageSender implements MessageSender {
 				url = StringUtil.replacePlaceholder( SystemConstant.URL_TEMPLEMENT_OF_MESSAG_SEND, map );
 			}
 		}
+		*/
 		LOG.info( "[Taokeeper]Send message: " + url );
 		return "ok".equalsIgnoreCase( NetUtil.getContentOfUrl( url ) );
 

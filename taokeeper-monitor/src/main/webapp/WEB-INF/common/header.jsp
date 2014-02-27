@@ -8,11 +8,11 @@
 				<li><a
 					href="<c:url value="/zooKeeper.do?method=zooKeeperSettingsPAGE" />">Cluster Config</a></li>
 				<li><a
-					href="<c:url value="/zooKeeperStatus.do?method=showZooKeeperStatusPAGE" />">Cluster Monitor</a></li>
+					href="<c:url value="/zooKeeperStatus.do?method=showZooKeeperStatusPAGE" />">Cluster Status</a></li>
 				<li><a
-					href="<c:url value="/hostPerformance.do?method=showHostPerformancePAGE" />">Server Monitor</a></li>
+					href="<c:url value="/hostPerformance.do?method=showHostPerformancePAGE" />">Server Status</a></li>
 				<li><a
-					href="<c:url value="/alarmSettings.do?method=alarmSettingsPAGE" />">Alarm Config</a></li>
+					href="<c:url value="/alarmSettings.do?method=alarmSettingsPAGE" />">Alarm Setting</a></li>
 			</ul>
 		</li>
 

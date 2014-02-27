@@ -87,9 +87,7 @@ a:visited { text-decoration:none}
 		 	</td>
 		 </tr>
 
-
-	
-	
+		<! --
 		<tr style="background-color:#D3D1D1; text-align:center;">
 		 	<td colspan="2"   ><b>Alarm To</b></td>
 		 </tr>
@@ -101,18 +99,16 @@ a:visited { text-decoration:none}
 		 	<td>cellphone(Online)</td>
 		 	<td><input type="text" name="phoneList" id="phoneList"  value="${alarmSettings.phoneList}" size="50" /></td>
 		 </tr>
-	
+		-->
 		 
-		 
-		 <!-- 
 		 <tr style="background-color:#D3D1D1; text-align:center;">
 		 	<td colspan="2" ><b>Weekly Report To</b></td>
 		 </tr>
 		 <tr>
 		 	<td>Email</td>
-		 	<td><input type="text" name="emailList" id="emailList"  value="${alarmSettings.emailList}" size="50"  readonly/></td>
+		 	<td><input type="text" name="emailList" id="emailList"  value="${alarmSettings.emailList}" size="50"/></td>
 		 </tr>
-		 -->
+
 		 <tr >
 		 	<td valign="middle"></td>
 		 	<td align="right" ><input type="submit"  value="Update"  size="90"/> <font color="red">${handleMessage}</font> </td>
@@ -123,10 +119,6 @@ a:visited { text-decoration:none}
 
 
 </div>
-
-
-
-
 
 
 <script type="text/javascript"> 
@@ -149,8 +141,3 @@ this.className=this.tmpClass;
 } 
 
 </script>
-
-
-
-
-

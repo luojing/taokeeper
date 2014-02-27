@@ -74,6 +74,7 @@ public class ZKServerPerformanceCollector implements Runnable {
 
 		String wangwangList = alarmSettings.getWangwangList();
 		String phoneList = alarmSettings.getPhoneList();
+		String maillist = alarmSettings.getEmailList();
 
 		String maxCpuUsage = alarmSettings.getMaxCpuUsage();
 		String maxMemoryUsage = alarmSettings.getMaxMemoryUsage();
@@ -95,6 +96,8 @@ public class ZKServerPerformanceCollector implements Runnable {
 						ThreadPoolManager.addJobToMessageSendExecutor( new TbMessageSender( 
 								new Message( wangwangList, "ZK Server cpu usage too high-" + clusterName, hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-" + maxCpuUsage + "=" + difference,
 								Message.MessageType.WANGWANG ),
+								new Message( maillist, "ZK Server cpu usage too high-" + clusterName, hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-" + maxCpuUsage + "=" + difference,
+										Message.MessageType.EMAIL ),
 								new Message( phoneList, "ZK Server cpu usage too high-" + clusterName, "ZK Server cpu usage too high-" + clusterName + hostPerformanceEntity.getIp() + " cpu usage too high! " + cpuUsage + "-"
 										+ maxCpuUsage + "=" + difference, Message.MessageType.SMS )
 								) );
