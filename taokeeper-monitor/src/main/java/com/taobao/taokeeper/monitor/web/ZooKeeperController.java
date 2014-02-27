@@ -60,7 +60,7 @@ public class ZooKeeperController extends BaseController {
 			}
 			
 			if( null ==  zooKeeperCluster ){
-				ServletUtil.writeToResponse( response, "目前还没有这样的ZK集群<a href='zooKeeper.do?method=zooKeeperRegisterPAGE'><font color='red'> 加入监控</font></a>" );
+				ServletUtil.writeToResponse( response, "There is no zkServer<a href='zooKeeper.do?method=zooKeeperRegisterPAGE'><font color='red'>Add New Monitor</font></a>" );
 				return null;
 			}
 			
