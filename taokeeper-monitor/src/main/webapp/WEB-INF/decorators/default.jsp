@@ -31,9 +31,7 @@
 </div>
 <div id="breadcrumbs">
 <div class="xright">
-<a target="_blank" href="https://github.com/luojing/taokeeper">TaoKeeper Dev</a>
-&nbsp;&nbsp;&nbsp;&nbsp;
-<a href="mailto:luojinglp@gmail.com">Contact Author</a>
+<a target="_blank" href="#">Zookeeper Monitor</a>
 </div>
 <div class="clear">
 <hr />
