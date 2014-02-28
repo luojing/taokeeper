@@ -7,7 +7,7 @@
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
 <meta http-equiv="content-type" content="text/html; charset=GBK" />
-<title>Taobao ZooKeeper Keeper</title>
+<title>ZooKeeper Monitor</title>
 <link rel="stylesheet" href="<c:url value="/css/default.css" />"
 	type="text/css" />
 <link rel="stylesheet" href="<c:url value="/css/displaytag.css" />"

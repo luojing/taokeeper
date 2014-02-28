@@ -13,7 +13,7 @@
 	<packaging>war</packaging>
 
 	<build>
-		<finalName>taokeeper-monitor</finalName>
+		<finalName>zookeeper-monitor</finalName>
 	</build>
 
 	<dependencies>
