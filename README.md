@@ -19,7 +19,7 @@ Any question to: nileader@qq.com
 ## Modify pom.xml to fit my own project.
 
 ### How to run:
-1. edit taokeeper-monitor-config.properties
+step 1. edit taokeeper-monitor-config.properties
 ```
 systemInfo.envName=TEST
 #DBCP
@@ -38,13 +38,13 @@ SystemConstant.userNameOfSSH=root
 SystemConstant.keyOfSSH=/home/nor/.ssh/id_rsa
 ```
 
-2. export JAVA_OPTS=-DconfigFilePath=/yourPATH/taokeeper-monitor-config.properties
+step 2. export JAVA_OPTS=-DconfigFilePath=/yourPATH/taokeeper-monitor-config.properties
 
-3. $ cd taokeeper-build/
+step 3. $ cd taokeeper-build/
    $ chmod u+x build.cmd
    $ ./build.cmd
 
-4. cp taokeeper-monitor/target/taokeeper-monitor.war /usr/local/apache-tomcat-8.0.3/webapps/
-5. cd /usr/local/apache-tomcat-8.0.3/bin && ./catalina.sh start
+step 4. cp taokeeper-monitor/target/taokeeper-monitor.war /usr/local/apache-tomcat-8.0.3/webapps/
+step 5. cd /usr/local/apache-tomcat-8.0.3/bin && ./catalina.sh start
 
-6. open http://localhost:8080/taokeeper-monitor/ in browser.
+step 6. open http://localhost:8080/taokeeper-monitor/ in browser.
