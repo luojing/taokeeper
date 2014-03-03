@@ -2,7 +2,7 @@ package com.taobao.taokeeper.monitor.core.task.runable;
 
 import static com.taobao.taokeeper.common.constant.SystemConstant.COMMAND_CONS;
 import static com.taobao.taokeeper.common.constant.SystemConstant.MINS_RATE_OF_COLLECT_ZOOKEEPER;
-import static com.taobao.taokeeper.common.constant.SystemConstant.passwordOfSSH;
+import static com.taobao.taokeeper.common.constant.SystemConstant.keyOfSSH;
 import static com.taobao.taokeeper.common.constant.SystemConstant.userNameOfSSH;
 import static common.toolkit.java.constant.BaseConstant.WORD_SEPARATOR;
 import static common.toolkit.java.constant.EmptyObjectConstant.EMPTY_STRING;
@@ -40,7 +40,6 @@ import common.toolkit.java.util.StringUtil;
 import common.toolkit.java.util.ThreadUtil;
 import common.toolkit.java.util.io.FileUtil;
 import common.toolkit.java.util.io.IOUtil;
-import common.toolkit.java.util.io.SSHUtil;
 /**
  * Description: 这个类收集zk集群上所有客户端发送与接收的数据量。
  * 
@@ -125,7 +124,7 @@ public class ClientThroughputStatJob implements Runnable {
 			
 			Map< String, Connection > connectionMapOfServer = new HashMap< String, Connection >();
 			try {
-				String consOutput = SSHUtil.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH, StringUtil.replaceSequenced( COMMAND_CONS, ip, port ) );
+				String consOutput = UtilSSH.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH, StringUtil.replaceSequenced( COMMAND_CONS, ip, port ) );
 
 				/**
 				 * Example: /10.232.38.158:50097[0](queued=0,recved=1,sent=0)

@@ -41,7 +41,8 @@ public class SystemConstant {
 	public final static String COMMAND_RWPS = "echo rwps | nc {0} {1}";
 
 	public static String userNameOfSSH = "nobody";
-	public static String passwordOfSSH = "look";
+//	public static String passwordOfSSH = "look";
+	public static String keyOfSSH = "no";
 	
 	public static int portOfSSH     = 22;
 

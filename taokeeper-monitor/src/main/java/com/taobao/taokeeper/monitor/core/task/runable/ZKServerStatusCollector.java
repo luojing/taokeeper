@@ -19,7 +19,6 @@ import common.toolkit.java.util.ObjectUtil;
 import common.toolkit.java.util.StringUtil;
 import common.toolkit.java.util.collection.MapUtil;
 import common.toolkit.java.util.io.IOUtil;
-import common.toolkit.java.util.io.SSHUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.context.ContextLoader;
@@ -117,7 +116,7 @@ public class ZKServerStatusCollector implements Runnable {
         StringBuffer sb = new StringBuffer();
         SSHResource sshResource = null;
         try {
-            sshResource = SSHUtil.executeWithoutHandleBufferedReader( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH,
+            sshResource = UtilSSH.executeWithoutHandleBufferedReader( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH,
                     StringUtil.replaceSequenced( COMMAND_STAT, ip, port + EMPTY_STRING ) );
             if ( null == sshResource ) {
                 LOG.warn( "No output of " + StringUtil.replaceSequenced( COMMAND_STAT, ip, port + EMPTY_STRING ) );
@@ -198,7 +197,7 @@ public class ZKServerStatusCollector implements Runnable {
                 LOG.warn( "Ip is empty" );
                 return;
             }
-            String wchsOutput = SSHUtil.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH,
+            String wchsOutput = UtilSSH.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH,
                     StringUtil.replaceSequenced( COMMAND_WCHS, ip, port + EMPTY_STRING ) );
 
             /**
@@ -250,7 +249,7 @@ public class ZKServerStatusCollector implements Runnable {
                 LOG.warn( "Ip is empty" );
                 return;
             }
-            String wchcOutput = SSHUtil.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH,
+            String wchcOutput = UtilSSH.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH,
                     StringUtil.replaceSequenced( COMMAND_WCHC, ip, port + EMPTY_STRING ) );
 
             /**
@@ -322,7 +321,7 @@ public class ZKServerStatusCollector implements Runnable {
                 LOG.warn( "Ip is empty" );
                 return;
             }
-            String rwpsOutput = SSHUtil.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH,
+            String rwpsOutput = UtilSSH.execute( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH,
                     StringUtil.replaceSequenced( COMMAND_RWPS, ip, port + EMPTY_STRING ) );
 
             /**
@@ -513,6 +512,9 @@ public class ZKServerStatusCollector implements Runnable {
                 rwStatistics = new Gson().toJson( zooKeeperStatus.getRwps(), type.getType() );
             }
 
+            LOG.error("zooKeeperStatus: " + zooKeeperStatus.getSent());
+        	LOG.error("zooKeeperStatus: " + zooKeeperStatus.getReceived());
+        	
             reportDAO.addTaoKeeperStat( new TaoKeeperStat( clusterId,
                     zooKeeperStatus.getIp(),
                     DateUtil.getNowTime( DateFormat.DateTime ),

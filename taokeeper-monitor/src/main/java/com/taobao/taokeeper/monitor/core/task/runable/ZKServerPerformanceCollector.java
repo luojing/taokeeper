@@ -1,6 +1,6 @@
 package com.taobao.taokeeper.monitor.core.task.runable;
 
-import static com.taobao.taokeeper.common.constant.SystemConstant.passwordOfSSH;
+import static com.taobao.taokeeper.common.constant.SystemConstant.keyOfSSH;
 import static com.taobao.taokeeper.common.constant.SystemConstant.userNameOfSSH;
 import static common.toolkit.java.constant.EmptyObjectConstant.EMPTY_STRING;
 import static common.toolkit.java.constant.SymbolConstant.PERCENT;
@@ -21,7 +21,6 @@ import com.taobao.taokeeper.reporter.alarm.TbMessageSender;
 import common.toolkit.java.entity.HostPerformanceEntity;
 import common.toolkit.java.exception.SSHException;
 import common.toolkit.java.util.StringUtil;
-import common.toolkit.java.util.io.SSHUtil;
 
 /**
  * Description: Collect zooKeeper machine performance CPU/LOAD/MEM
@@ -51,7 +50,7 @@ public class ZKServerPerformanceCollector implements Runnable {
 	@Override
 	public void run() {
 		try {
-			HostPerformanceEntity hostPerformanceEntity = SSHUtil.getHostPerformance( ip, SystemConstant.portOfSSH, userNameOfSSH, passwordOfSSH );
+			HostPerformanceEntity hostPerformanceEntity = UtilSSH.getHostPerformance( ip, SystemConstant.portOfSSH, userNameOfSSH, keyOfSSH );
 			sendAlarm( alarmSettings, hostPerformanceEntity, zookeeperCluster.getClusterName() );
 			GlobalInstance.putHostPerformanceEntity( ip, hostPerformanceEntity );
 			LOG.info( "HostPerformanceEntity collect of #" + zookeeperCluster.getClusterName() + "-" + ip );

@@ -10,25 +10,25 @@ Any question to: nileader@qq.com
 4. Exec taokeeper-build/build.cmd to generate taokeeper-monitor.war
 
 ---------------------------------
-Modify pom.xml to fit my own project.
+## Modify pom.xml to fit my own project.
 
-How to run:
+### How to run:
 1. edit taokeeper-monitor-config.properties
-systemInfo.envName=TEST
-#DBCP
-dbcp.driverClassName=com.mysql.jdbc.Driver
-dbcp.dbJDBCUrl=jdbc:mysql://127.0.0.1:3306/taokeeper
-dbcp.characterEncoding=GBK
-dbcp.username=root
-dbcp.password=123456
-dbcp.maxActive=30
-dbcp.maxIdle=10
-dbcp.maxWait=10000
-#SystemConstant 
-SystemConstent.dataStoreBasePath=/tmp/zookeeper-monitor
-#SSH account of zk server
-SystemConstant.userNameOfSSH=xxx
-SystemConstant.passwordOfSSH=xxx
+>systemInfo.envName=TEST
+>#DBCP
+>dbcp.driverClassName=com.mysql.jdbc.Driver
+>dbcp.dbJDBCUrl=jdbc:mysql://127.0.0.1:3306/taokeeper
+>dbcp.characterEncoding=GBK
+>dbcp.username=root
+>dbcp.password=123456
+>dbcp.maxActive=30
+>dbcp.maxIdle=10
+>dbcp.maxWait=10000
+>#SystemConstant 
+>SystemConstent.dataStoreBasePath=/tmp/zookeeper-monitor
+>#SSH account of zk server
+>SystemConstant.userNameOfSSH=root
+>SystemConstant.keyOfSSH=/home/nor/.ssh/id_rsa
 
 2. export JAVA_OPTS=-DconfigFilePath=/yourPATH/taokeeper-monitor-config.properties
 
