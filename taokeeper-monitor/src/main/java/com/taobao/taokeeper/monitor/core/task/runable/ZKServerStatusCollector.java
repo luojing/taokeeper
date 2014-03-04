@@ -201,7 +201,9 @@ public class ZKServerStatusCollector implements Runnable {
                     StringUtil.replaceSequenced( COMMAND_WCHS, ip, port + EMPTY_STRING ) );
 
             /**
-             * Example: 59 connections watching 161 paths Total watches:405
+             * Example: 
+             * 59 connections watching 161 paths 
+             * Total watches:405
              */
             if ( StringUtil.isBlank( wchsOutput ) ) {
                 LOG.warn( "No output execute " + StringUtil.replaceSequenced( COMMAND_WCHS, ip, port + EMPTY_STRING ) );

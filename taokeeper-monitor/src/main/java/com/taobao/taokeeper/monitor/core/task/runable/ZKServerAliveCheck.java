@@ -23,7 +23,7 @@ import common.toolkit.java.util.io.ServletUtil;
 
 /**
  * Description: Check if zookeeper server alive.<br>
- * 节点自检 是指对集群中每个IP所在ZK节点上的PATH: /YINSHI.MONITOR.ALIVE.CHECK 定期进行三次如下流程 :<br>
+ * 节点自检 是指对集群中每个IP所在ZK节点上的PATH: /BST.MONITOR.ALIVE.CHECK 定期进行三次如下流程 :<br>
  * 节点连接 - 数据发布 - 修改通知 - 获取数据 - 数据对比, 三次流程均成功视为该节点处于正常状态。<br>
  * 
  * @author 银时 yinshi.nc@taobao.com

@@ -12,7 +12,7 @@ import common.toolkit.java.util.StringUtil;
  */
 public class SystemConstant {
 
-	public final static String ZOOKEEPER_MONITOR_PATH = "/YINSHI.MONITOR.ALIVE.CHECK";
+	public final static String ZOOKEEPER_MONITOR_PATH = "/BST.MONITOR.ALIVE.CHECK";
 
 	public final static String AUTHENTICATION_TYPE = "digest";
 
@@ -41,7 +41,6 @@ public class SystemConstant {
 	public final static String COMMAND_RWPS = "echo rwps | nc {0} {1}";
 
 	public static String userNameOfSSH = "nobody";
-//	public static String passwordOfSSH = "look";
 	public static String keyOfSSH = "no";
 	
 	public static int portOfSSH     = 22;

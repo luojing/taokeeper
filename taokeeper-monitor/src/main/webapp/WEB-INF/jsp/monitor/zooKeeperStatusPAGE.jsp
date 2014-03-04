@@ -72,7 +72,7 @@ a:visited { text-decoration:none}
 
 <br/><br/>
 <b>Tips</b>:<br><br>
- 1. Node-Selfcheck is that PATH:  <b>/YINSHI.MONITOR.ALIVE.CHECK</b> in every Node, do following 3 steps regularly: <br/>
+ 1. Node-Selfcheck is that PATH:  <b>/BST.MONITOR.ALIVE.CHECK</b> in every Node, do following 3 steps regularly: <br/>
 <b>Node Connection</b> - <b>Data Publishing</b> - <b>Notification</b> - <b>Get data</b> - <b>Compare Data</b>, node is normal only when all steps success. <br><br>
  2. Roles：<b>L</b>: Leader, <b>F</b>: Follower, <b>O</b>: Observer, <b>S</b>: Standalone
  
